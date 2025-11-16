@@ -4,12 +4,12 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+野生程序猿
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+用于总结与分享
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[gaoqi@email.com](mailto:email@domain.com)
