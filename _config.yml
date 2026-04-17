@@ -14,8 +14,6 @@ plugins:
 # Basic site settings
 title: Anderson's Blog
 name: Anderson
-<<<<<<< Updated upstream
-
 # Short bio or description (displayed in the header)
 description: 总结与分享
 
@@ -49,14 +47,6 @@ disqus:
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
 google_analytics:
-
-=======
-description: Web Developer from Somewhere
-lang: zh_CN
-timezone: Asia/Shanghai
-
-# URL and base URL
->>>>>>> Stashed changes
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 url:
 # If you're hosting your site at a Project repository on GitHub pages
@@ -66,7 +56,6 @@ baseurl:
 # Repository name for GitHub Pages
 repository: Andersonhere/WorkGuide
 
-<<<<<<< Updated upstream
 # 默认 false：date 晚于「构建时刻」的文章不会进入 site.posts，首页也看不到。
 # 笔记若使用较晚的 date（例如批量写成某一天），在本地日期未到或时区下会被当成「未来文」。
 future: true
@@ -74,13 +63,11 @@ future: true
 #
 # !! You don't need to change any of the configuration flags below !!
 #
-=======
 # Author settings
 author:
   name: Anderson
   email:
   github: Andersonhere
->>>>>>> Stashed changes
 
 # Avatar (profile picture)
 # You could use your GitHub profile pic
