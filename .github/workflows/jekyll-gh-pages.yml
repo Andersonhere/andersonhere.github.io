@@ -26,7 +26,8 @@ jobs:
 
       - name: Configure Pages
         id: pages
-        uses: actions/configure-pages@v5
+        # v5.0.1+：Node 24（消除 Node 20 弃用告警）
+        uses: actions/configure-pages@v5.0.1
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
@@ -40,7 +41,7 @@ jobs:
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4.0.1
         with:
           path: _site
 
@@ -53,4 +54,5 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        # v4.0.6+：Node 24（见 GitHub changelog / deploy-pages releases）
+        uses: actions/deploy-pages@v4.0.6
