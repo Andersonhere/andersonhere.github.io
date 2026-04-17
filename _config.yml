@@ -33,6 +33,14 @@ yat:
 
 future: true
 
+# 远程主题未为文章设置默认 layout；不写 layout 时文章不会走 post 布局，侧栏与正文样式会缺失。
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
 header_pages:
   - index.html
   - archives.html
