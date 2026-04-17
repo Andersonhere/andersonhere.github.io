@@ -34,12 +34,15 @@ yat:
 future: true
 
 # 远程主题未为文章设置默认 layout；不写 layout 时文章不会走 post 布局，侧栏与正文样式会缺失。
+# permalink 只能作用于 posts：若写在顶层，会改掉 categories/tags/archives 等页面的 URL，
+# 侧栏仍指向 /categories.html → 整页 404。
 defaults:
   - scope:
       path: ""
       type: "posts"
     values:
       layout: "post"
+      permalink: "/:title/"
 
 header_pages:
   - index.html
@@ -63,8 +66,6 @@ kramdown:
 
 sass:
   style: :compressed
-
-permalink: /:title/
 
 paginate: 10
 paginate_path: "/page:num/"
