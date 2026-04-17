@@ -9,8 +9,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-paginate
-  # 主题内置能力依赖 jekyll-spaceship（表格/MathJax/Mermaid 等），但不在 GitHub Pages 默认白名单。
-  # 若需在线构建支持，请用 GitHub Actions 全量构建部署（见主题 README「GitHub Pages without limitation」）。
+  - jekyll-spaceship
 
 title: "Anderson's Blog"
 email:
