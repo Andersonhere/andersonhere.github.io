@@ -79,3 +79,4 @@ exclude:
   - README.md
   - CNAME
   - jekyll-theme-yat-setup.md
+  - 博客使用说明.md
