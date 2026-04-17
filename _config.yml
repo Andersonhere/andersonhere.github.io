@@ -1,104 +1,72 @@
-#
-# This file contains configuration flags to customize your site
-#
+# Jekyll Theme Yat — https://github.com/jeffreytse/jekyll-theme-yat
+# 远程主题（GitHub Pages 兼容）：https://github.com/jeffreytse/jekyll-theme-yat#remote-theme-method-with-jekyll-remote-theme-plugin
 
-# Theme configuration
 remote_theme: "jeffreytse/jekyll-theme-yat"
+
 plugins:
   - jekyll-remote-theme
+  - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
-  - jekyll-feed
-  - jekyll-spaceship
+  - jekyll-paginate
+  # 主题内置能力依赖 jekyll-spaceship（表格/MathJax/Mermaid 等），但不在 GitHub Pages 默认白名单。
+  # 若需在线构建支持，请用 GitHub Actions 全量构建部署（见主题 README「GitHub Pages without limitation」）。
 
-# Basic site settings
-title: Anderson's Blog
-name: Anderson
-# Short bio or description (displayed in the header)
+title: "Anderson's Blog"
+email:
+author: Anderson
+
+copyright: "© {currentYear} {author}"
+
 description: 总结与分享
 
-# URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: /images/homepage/7e58f9564691a8.png
+# GitHub Pages 用户站根域名（jekyll-seo-tag、RSS、canonical 等依赖）
+# 若为项目站（如 /WorkGuide/），请改为对应 url 并设置 baseurl: "/WorkGuide"
+url: "https://andersonhere.github.io"
+baseurl: ""
+favicon: ""
 
-#
-# Flags below are optional
-#
-
-# Includes an icon in the footer for each username you enter
-footer-links:
-  dribbble:
-  email:
-  facebook:
-  flickr:
-  github: Andersonhere
-  instagram:
-  linkedin:
-  pinterest:
-  rss: # just type anything here for a working RSS icon
-  twitter: 
-  stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
-  youtube: # channel/<your_long_string> or user/<user-name>
-  googleplus: # anything in your profile username that comes after plus.google.com/
-
-
-# Enter your Disqus shortname (not your username) to enable commenting on posts
-# You can find your shortname on the Settings page of your Disqus account
-disqus:
-
-# Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
-google_analytics:
-# Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
-url:
-# If you're hosting your site at a Project repository on GitHub pages
-# (http://yourusername.github.io/repository-name)
-# then add in the baseurl here, like this: "/repository-name"
-baseurl:
-# Repository name for GitHub Pages
 repository: Andersonhere/WorkGuide
 
-# 默认 false：date 晚于「构建时刻」的文章不会进入 site.posts，首页也看不到。
-# 笔记若使用较晚的 date（例如批量写成某一天），在本地日期未到或时区下会被当成「未来文」。
+lang: zh-CN
+
+yat:
+  date_format: "%Y-%m-%d"
+
 future: true
 
-#
-# !! You don't need to change any of the configuration flags below !!
-#
-# Author settings
-author:
-  name: Anderson
-  email:
-  github: Andersonhere
+header_pages:
+  - index.html
+  - archives.html
+  - categories.html
+  - tags.html
+  - about.md
 
-# Avatar (profile picture)
-# You could use your GitHub profile pic
-avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/jekyll-logo.png
-
-# Social links
 github_username: Andersonhere
 twitter_username:
 
-# Markdown settings
+# 头像（若主题未引用，可忽略；图片请放在 blog/images/... 下）
+avatar: /images/homepage/7e58f9564691a8.png
+
 markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
   syntax_highlighter_opts:
-    css_class: 'highlight'
+    css_class: "highlight"
 
-# Sass settings
 sass:
   style: :compressed
 
-# Permalink structure
 permalink: /:title/
 
-# paginate
 paginate: 10
+paginate_path: "/page:num/"
 
-# Excludes
 exclude:
   - Gemfile
   - Gemfile.lock
   - LICENSE
   - README.md
   - CNAME
+  - jekyll-theme-yat-setup.md
