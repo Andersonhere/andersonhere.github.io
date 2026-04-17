@@ -2,11 +2,18 @@
 
 source "https://rubygems.org"
 
-# 已包含 jekyll-remote-theme 等与 Pages 对齐的版本：https://pages.github.com/versions/
+# jekyll-theme-yat 的样式使用 @use / sass:meta（Dart Sass）。github-pages 固定 Jekyll 3.9 +
+# jekyll-sass-converter 1.x，无法编译该主题；GitHub Actions 自建环境用 Jekyll 4 即可。
+gem "jekyll", "~> 4.3"
+gem "jekyll-sass-converter", "~> 3.0"
+
 group :jekyll_plugins do
-  gem "github-pages"
+  gem "jekyll-remote-theme"
+  gem "jekyll-feed"
+  gem "jekyll-seo-tag"
+  gem "jekyll-sitemap"
+  gem "jekyll-paginate"
   gem "jekyll-spaceship", "~> 0.10"
 end
 
-# Ruby 3+ 本地 `jekyll serve` 需要；GitHub Actions 仅 build 时可忽略
 gem "webrick", "~> 1.8"
