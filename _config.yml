@@ -49,6 +49,10 @@ url:
 # then add in the baseurl here, like this: "/repository-name"
 baseurl: ""
 
+# 默认 false：date 晚于「构建时刻」的文章不会进入 site.posts，首页也看不到。
+# 笔记若使用较晚的 date（例如批量写成某一天），在本地日期未到或时区下会被当成「未来文」。
+future: true
+
 #
 # !! You don't need to change any of the configuration flags below !!
 #
