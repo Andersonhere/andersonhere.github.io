@@ -73,7 +73,7 @@ excerpt_image: {img}
 ---
 
 """
-    elif "O-system" in path.name:
+    elif "Operating-system" in path.name or "O-system" in path.name:
         fm = f"""---
 title: 操作系统学习记录
 date: 2025-11-16 12:00:00 +0800
