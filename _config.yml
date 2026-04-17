@@ -62,6 +62,8 @@ paginate: 10
 paginate_path: "/page:num/"
 
 exclude:
+  # CI 上 bundler-cache 会把 gem 装到 vendor/bundle；不排除时 Jekyll 会扫到 gem 内 site_template/_posts 的 .erb 模板并报错。
+  - vendor
   - Gemfile
   - Gemfile.lock
   - LICENSE
