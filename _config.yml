@@ -2,8 +2,19 @@
 # This file contains configuration flags to customize your site
 #
 
-# Name of your site (displayed in the header)
+# Theme configuration
+remote_theme: "jeffreytse/jekyll-theme-yat"
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-spaceship
+
+# Basic site settings
+title: Anderson's Blog
 name: Anderson
+<<<<<<< Updated upstream
 
 # Short bio or description (displayed in the header)
 description: 总结与分享
@@ -39,16 +50,23 @@ disqus:
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
 google_analytics:
 
-# Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
-# Used for Sitemap.xml and your RSS feed
-url:
+=======
+description: Web Developer from Somewhere
+lang: zh_CN
+timezone: Asia/Shanghai
 
+# URL and base URL
+>>>>>>> Stashed changes
+# Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
+url:
 # If you're hosting your site at a Project repository on GitHub pages
 # (http://yourusername.github.io/repository-name)
-# and NOT your User repository (http://yourusername.github.io)
 # then add in the baseurl here, like this: "/repository-name"
-baseurl: ""
+baseurl:
+# Repository name for GitHub Pages
+repository: Andersonhere/WorkGuide
 
+<<<<<<< Updated upstream
 # 默认 false：date 晚于「构建时刻」的文章不会进入 site.posts，首页也看不到。
 # 笔记若使用较晚的 date（例如批量写成某一天），在本地日期未到或时区下会被当成「未来文」。
 future: true
@@ -56,32 +74,41 @@ future: true
 #
 # !! You don't need to change any of the configuration flags below !!
 #
+=======
+# Author settings
+author:
+  name: Anderson
+  email:
+  github: Andersonhere
+>>>>>>> Stashed changes
 
-permalink: /:title/
+# Avatar (profile picture)
+# You could use your GitHub profile pic
+avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/jekyll-logo.png
 
-# The release of Jekyll Now that you're using
-version: v1.2.0
+# Social links
+github_username: Andersonhere
+twitter_username:
 
-# Jekyll 3 now only supports Kramdown for Markdown
+# Markdown settings
+markdown: kramdown
 kramdown:
-  # Use GitHub flavored markdown, including triple backtick fenced code blocks
   input: GFM
-  # Jekyll 3 and GitHub Pages now only support rouge for syntax highlighting
   syntax_highlighter: rouge
   syntax_highlighter_opts:
-    # Use existing pygments syntax highlighting css
     css_class: 'highlight'
 
-# Set the Sass partials directory, as we're using @imports
+# Sass settings
 sass:
-  style: :expanded # You might prefer to minify using :compressed
+  style: :compressed
 
-# Use the following plug-ins
-gems:
-  - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
-  - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
+# Permalink structure
+permalink: /:title/
 
-# Exclude these files from your production _site
+# paginate
+paginate: 10
+
+# Excludes
 exclude:
   - Gemfile
   - Gemfile.lock
