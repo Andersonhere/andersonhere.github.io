@@ -20,13 +20,12 @@ copyright: "© {currentYear} {author}"
 
 description: 总结与分享
 
-# GitHub Pages 用户站根域名（jekyll-seo-tag、RSS、canonical 等依赖）
-# 若为项目站（如 /WorkGuide/），请改为对应 url 并设置 baseurl: "/WorkGuide"
+# 本仓库：Andersonhere/andersonhere.github.io（用户站根路径）
 url: "https://andersonhere.github.io"
 baseurl: ""
 favicon: ""
 
-repository: Andersonhere/WorkGuide
+repository: Andersonhere/andersonhere.github.io
 
 lang: zh-CN
 

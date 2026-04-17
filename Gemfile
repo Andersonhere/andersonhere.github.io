@@ -2,8 +2,10 @@
 
 source "https://rubygems.org"
 
-# 与 GitHub Pages 一致：https://pages.github.com/versions/
-gem "github-pages", group: :jekyll_plugins
+# 已包含 jekyll-remote-theme 等与 Pages 对齐的版本：https://pages.github.com/versions/
+group :jekyll_plugins do
+  gem "github-pages"
+end
 
-# Ruby 3+ 本地 `jekyll serve` 需要
+# Ruby 3+ 本地 `jekyll serve` 需要；GitHub Actions 仅 build 时可忽略
 gem "webrick", "~> 1.8"
