@@ -31,6 +31,10 @@ lang: zh-CN
 yat:
   date_format: "%Y-%m-%d"
 
+# 首页列表缩略图（主题 pagination-item：post.excerpt_image → post.banner → excerpt.default_image）
+excerpt:
+  default_image: /images/homepage/5833e314e4402.jpeg
+
 future: true
 
 # 远程主题未为文章设置默认 layout；不写 layout 时文章不会走 post 布局，侧栏与正文样式会缺失。

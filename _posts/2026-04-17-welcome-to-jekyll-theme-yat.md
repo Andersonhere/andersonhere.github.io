@@ -4,6 +4,7 @@ title: 欢迎使用 Jekyll Theme Yat 主题
 date: 2026-04-17 01:00:00 +0800
 categories: [博客, 技术]
 tags: [Jekyll, GitHub Pages, 博客]
+excerpt_image: /images/jekyll-logo.png
 ---
 
 你好！欢迎来到 Anderson 的博客。
