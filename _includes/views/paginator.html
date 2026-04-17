@@ -1,0 +1,178 @@
+{% if include.paginator %}
+  {% assign paginator = include.paginator %}
+{% endif %}
+
+{% if paginator.posts.size > 0 and paginator.total_pages > 1 %}
+  <nav class="paginator paginator-extended" aria-label="分页导航">
+    <div class="paginator-row paginator-row--nav">
+      <span class="previous">
+        {% if paginator.previous_page %}
+          <a href="{{ paginator.previous_page_path | relative_url }}">上一页</a>
+        {% else %}
+          <span class="disabled">上一页</span>
+        {% endif %}
+      </span>
+
+      <span class="indicator">第 {{ paginator.page }} / {{ paginator.total_pages }} 页</span>
+
+      <span class="next">
+        {% if paginator.next_page %}
+          <a href="{{ paginator.next_page_path | relative_url }}">下一页</a>
+        {% else %}
+          <span class="disabled">下一页</span>
+        {% endif %}
+      </span>
+    </div>
+
+    <ul class="paginator-pages" role="list">
+      {% for i in (1..paginator.total_pages) %}
+        {% if i == 1 %}
+          {% assign p_href = '/' | relative_url %}
+        {% else %}
+          {% assign p_href = site.paginate_path | replace: ':num', i | relative_url %}
+        {% endif %}
+        <li>
+          {% if i == paginator.page %}
+            <span class="current" aria-current="page">{{ i }}</span>
+          {% else %}
+            <a href="{{ p_href }}">{{ i }}</a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+
+    <div class="paginator-row paginator-row--jump">
+      <label for="paginator-page-jump">跳转至</label>
+      <input id="paginator-page-jump" type="number" min="1" max="{{ paginator.total_pages }}" value="{{ paginator.page }}" inputmode="numeric" />
+      <button type="button" class="paginator-jump-btn">前往</button>
+    </div>
+  </nav>
+
+  <script>
+    (function () {
+      var root = document.querySelector('.paginator-extended');
+      if (!root) return;
+      var max = parseInt(root.querySelector('#paginator-page-jump').getAttribute('max'), 10) || 1;
+      var input = root.querySelector('#paginator-page-jump');
+      var btn = root.querySelector('.paginator-jump-btn');
+      var base = {{ site.baseurl | jsonify }};
+      var pathTpl = {{ site.paginate_path | jsonify }};
+
+      function hrefForPage(n) {
+        if (n <= 1) {
+          return (base || '') + '/';
+        }
+        var p = pathTpl.replace(':num', String(n));
+        if (p.charAt(0) !== '/') p = '/' + p;
+        return (base || '') + p;
+      }
+
+      function go() {
+        var n = parseInt(input.value, 10);
+        if (isNaN(n) || n < 1) n = 1;
+        if (n > max) n = max;
+        window.location.href = hrefForPage(n);
+      }
+
+      btn.addEventListener('click', go);
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          go();
+        }
+      });
+    })();
+  </script>
+
+  <style>
+    .paginator-extended {
+      margin-top: 1.75rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(127, 127, 127, 0.35);
+    }
+    .paginator-extended .paginator-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem 1rem;
+      margin-bottom: 0.85rem;
+    }
+    .paginator-extended .paginator-row--jump label {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+    .paginator-extended .paginator-row--jump input {
+      width: 4.5rem;
+      padding: 0.35rem 0.5rem;
+      border-radius: 4px;
+      border: 1px solid rgba(127, 127, 127, 0.45);
+      background: transparent;
+      color: inherit;
+    }
+    .paginator-extended .paginator-jump-btn {
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      border: 1px solid rgba(127, 127, 127, 0.45);
+      background: rgba(127, 127, 127, 0.12);
+      color: inherit;
+      cursor: pointer;
+    }
+    .paginator-extended .paginator-jump-btn:hover {
+      background: rgba(127, 127, 127, 0.22);
+    }
+    .paginator-extended .indicator {
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
+    .paginator-extended .disabled {
+      opacity: 0.45;
+    }
+    .paginator-extended .paginator-pages {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.35rem;
+      list-style: none;
+      padding: 0;
+      margin: 0 0 0.85rem 0;
+    }
+    .paginator-extended .paginator-pages li {
+      margin: 0;
+    }
+    .paginator-extended .paginator-pages a,
+    .paginator-extended .paginator-pages .current {
+      display: inline-flex;
+      min-width: 2.1rem;
+      height: 2.1rem;
+      align-items: center;
+      justify-content: center;
+      padding: 0 0.35rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .paginator-extended .paginator-pages a {
+      border: 1px solid rgba(127, 127, 127, 0.4);
+      color: inherit;
+    }
+    .paginator-extended .paginator-pages a:hover {
+      background: rgba(127, 127, 127, 0.15);
+    }
+    .paginator-extended .paginator-pages .current {
+      font-weight: 600;
+      border: 1px solid var(--brand-color, #ff5100);
+      background: rgba(255, 81, 0, 0.12);
+    }
+    .paginator-extended .previous a,
+    .paginator-extended .next a {
+      text-decoration: none;
+      color: var(--brand-color, #ff5100);
+    }
+  </style>
+{% elsif paginator.posts.size > 0 %}
+  {# 仅一页时保持简洁 #}
+  <div class="paginator">
+    <span class="indicator">第 {{ paginator.page }} / {{ paginator.total_pages }} 页</span>
+  </div>
+{% endif %}
