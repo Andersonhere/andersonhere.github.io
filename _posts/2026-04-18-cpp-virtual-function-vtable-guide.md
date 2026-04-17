@@ -5,7 +5,9 @@ categories: [C++, 现代 C++]
 tags: [虚函数, vtable, vptr, 多态, ABI, 动态链接]
 ---
 
-> 配套示例与源码目录：`WorkGuide` 仓库内 [`modern_cpp/virtualfunc/vtable-demo/`](https://github.com/Andersonhere/WorkGuide/tree/master/modern_cpp/virtualfunc/vtable-demo)（若仓库路径或远程名不同，以本地为准）。
+> **原文（维护源）**：[VIRTUAL_FUNCTION_GUIDE.md](https://github.com/Andersonhere/WorkGuide/blob/master/modern_cpp/virtualfunc/vtable-demo/VIRTUAL_FUNCTION_GUIDE.md)（修订以仓库内该文件为准；本文为发布副本。）
+>
+> **配套示例与源码目录**：[modern_cpp/virtualfunc/vtable-demo/](https://github.com/Andersonhere/WorkGuide/tree/master/modern_cpp/virtualfunc/vtable-demo)
 
 # C++ 虚函数 (Virtual Function) 完整指南
 
