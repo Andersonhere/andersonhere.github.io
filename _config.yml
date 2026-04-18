@@ -22,7 +22,8 @@ description: 总结与分享
 # 本仓库：Andersonhere/andersonhere.github.io（用户站根路径）
 url: "https://andersonhere.github.io"
 baseurl: ""
-favicon: ""
+# 标签页 / 书签图标（由 _includes/custom-head.html 输出；与 avatar 可相同或单独准备小方图）
+favicon: /images/homepage/7e58f9564691a8.png
 
 repository: Andersonhere/andersonhere.github.io
 

@@ -1,5 +1,10 @@
-<style>
-  .post-content figure.highlight { margin: 1.2em 0; overflow-x: auto; border-radius: 4px; }
-  .post-content figure.highlight pre { margin: 0; padding: 0.85em 1em; }
-  .post-content table { display: block; overflow-x: auto; max-width: 100%; }
-</style>
+{% comment %}
+  站点标签页 / 书签图标（覆盖 remote_theme 中空白的 custom-head 占位）。
+  使用 _config.yml 的 favicon；未配置时回退到 avatar。
+{% endcomment %}
+{% assign _favicon = site.favicon | default: site.avatar | strip %}
+{% if _favicon != "" %}
+<link rel="icon" type="image/png" href="{{ _favicon | relative_url }}">
+<link rel="shortcut icon" type="image/png" href="{{ _favicon | relative_url }}">
+<link rel="apple-touch-icon" href="{{ _favicon | relative_url }}">
+{% endif %}
