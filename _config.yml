@@ -31,6 +31,10 @@ lang: zh-CN
 yat:
   date_format: "%Y-%m-%d"
 
+# 首页顶部大横幅高度（主题默认约 640px；仅影响 .page-banner，index 的 banner 图仍用 front matter）
+banner:
+  height: "400px"
+
 # 首页列表缩略图（主题 pagination-item：post.excerpt_image → post.banner → excerpt.default_image）
 excerpt:
   default_image: /images/homepage/5833e314e4402.jpeg
