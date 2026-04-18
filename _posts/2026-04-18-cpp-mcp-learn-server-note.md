@@ -1,6 +1,6 @@
 ---
 title: "C++ MCP 学习服务实现笔记（learn_mcp_server 与 Cursor）"
-date: 2026-04-18
+date: 2026-04-18 17:00:00 +0800
 categories: [C++, 工具链, MCP]
 tags: [MCP, cpp-mcp, Cursor, C++, JSON-RPC, hkr04]
 ---

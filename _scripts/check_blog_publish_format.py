@@ -22,7 +22,13 @@ import re
 import shutil
 import subprocess
 import sys
+from datetime import datetime
 from pathlib import Path
+
+try:
+    from zoneinfo import ZoneInfo
+except ImportError:  # pragma: no cover
+    ZoneInfo = None  # type: ignore[misc, assignment]
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -52,6 +58,37 @@ def _post_date_from_filename(path: Path) -> bool:
     return bool(re.match(r"^\d{4}-\d{1,2}-\d{1,2}-", path.stem))
 
 
+# _posts 文章要求：东八区完整时间，避免仅写日期导致排序/Feed 与预期不一致，且与 Liquid/Jekyll 习惯对齐。
+_POST_DATE_FULL_RE = re.compile(r"^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2} \+0800$")
+
+
+def shanghai_now_example() -> str:
+    """供错误提示：当前 Asia/Shanghai 时刻，格式与 front matter 推荐写法一致。"""
+    if ZoneInfo is not None:
+        return datetime.now(ZoneInfo("Asia/Shanghai")).strftime("%Y-%m-%d %H:%M:%S +0800")
+    return datetime.now().strftime("%Y-%m-%d %H:%M:%S +0800")
+
+
+def check_post_date_format(path: Path, fm: str) -> str | None:
+    """
+    校验 `date:` 为 `YYYY-MM-DD HH:MM:SS +0800`（可带 YAML 引号）。
+    返回 None 表示通过；否则返回错误说明字符串。
+    """
+    m = re.search(r"^date\s*:\s*(.+)$", fm, re.MULTILINE)
+    if not m:
+        return None
+    raw = m.group(1).strip()
+    if (raw.startswith('"') and raw.endswith('"')) or (raw.startswith("'") and raw.endswith("'")):
+        raw = raw[1:-1].strip()
+    if _POST_DATE_FULL_RE.match(raw):
+        return None
+    ex = shanghai_now_example()
+    return (
+        f"`date:` 须为东八区完整时间，格式 `YYYY-MM-DD HH:MM:SS +0800`；"
+        f"当前时刻示例：`date: {ex}`；实际 front matter 解析值为 `{raw!r}`"
+    )
+
+
 def check_file(path: Path, *, strict_links: bool) -> list[Issue]:
     issues: list[Issue] = []
     try:
@@ -73,6 +110,10 @@ def check_file(path: Path, *, strict_links: bool) -> list[Issue]:
             issues.append(Issue(path, "_posts 文章 front matter 缺少 `title:`"))
         if not re.search(r"^date\s*:", fm, re.MULTILINE) and not _post_date_from_filename(path):
             issues.append(Issue(path, "_posts 文章 front matter 缺少 `date:`，且文件名亦非 YYYY-MM-DD- 前缀"))
+        elif re.search(r"^date\s*:", fm, re.MULTILINE):
+            msg = check_post_date_format(path, fm)
+            if msg:
+                issues.append(Issue(path, msg))
 
         if "argv[argv]" in body:
             issues.append(Issue(path, "正文中出现 `argv[argv]`，疑似应为 `argv[1]`"))
