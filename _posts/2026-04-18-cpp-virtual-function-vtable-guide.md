@@ -3,7 +3,7 @@ title: "C++ 虚函数完整指南（vtable / vptr / 三阶段）"
 date: 2026-04-18
 categories: [C++, 现代 C++]
 tags: [虚函数, vtable, vptr, 多态, ABI, 动态链接]
-excerpt_image: /images/homepage/7e58f9564691a8.png
+excerpt_image: /images/covers/2026-04-18-cpp-virtual-function-vtable-guide.jpg
 ---
 
 > **原文（维护源）**：[VIRTUAL_FUNCTION_GUIDE.md](https://github.com/Andersonhere/WorkGuide/blob/master/modern_cpp/virtualfunc/vtable-demo/VIRTUAL_FUNCTION_GUIDE.md)（修订以仓库内该文件为准；本文为发布副本。）

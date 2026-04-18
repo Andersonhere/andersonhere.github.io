@@ -1,7 +1,7 @@
 ---
 layout: post
 title: You're up and running!
-excerpt_image: /images/config.png
+excerpt_image: /images/covers/2014-3-3-Hello-World.png
 ---
 
 Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).
