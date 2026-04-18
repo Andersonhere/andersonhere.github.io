@@ -274,6 +274,7 @@ fs::create_directories(data_dir);
 - **`--host` / `--port`**：运维可调，无需重编译。
 - **`data/` 与样例文件**：保证后续 `file_resource` 指向的磁盘路径**在注册前已存在**，避免构造失败。
 
+{% raw %}
 ```cpp
 mcp::server::configuration srv_conf;
 srv_conf.host = host;
@@ -289,6 +290,7 @@ server.set_capabilities(mcp::json{
     {"prompts", mcp::json{{"listChanged", false}}},
 });
 ```
+{% endraw %}
 
 - **`set_server_info`**：对应 MCP `initialize` 结果里的 server 标识。
 - **`set_instructions`**：自然语言说明，帮助模型选择 tools / resources / prompts。
@@ -316,6 +318,7 @@ server.register_resource("learn://blob/ping", ping_blob);
 
 **资源模板**：lambda 接收 `uri_params`，把路径里的 `{message}` 解析成键值，返回带 `mimeType` 与 `text` 的 JSON——对应 **`resources/read` 对动态 URI 的响应体形状**（由库封装在协议帧里）。
 
+{% raw %}
 ```cpp
 server.register_resource_template(
     "learn://echo/{message}", "Echo template", "text/plain", "...",
@@ -326,11 +329,13 @@ server.register_resource_template(
                          {"text", "Echo template resolved. Segment: " + msg}};
     });
 ```
+{% endraw %}
 
 ### 5.4 工具：`tool_builder` 与 handler 的契约
 
 **声明侧**：链式 API 生成带 `inputSchema` 的 tool 描述，并可加 **`readOnlyHint`** 注解。
 
+{% raw %}
 ```cpp
 mcp::tool time_tool = mcp::tool_builder("get_time")
                           .with_description("Return the server's current local time (read-only)")
@@ -338,15 +343,18 @@ mcp::tool time_tool = mcp::tool_builder("get_time")
                           .build();
 server.register_tool(time_tool, get_time_handler);
 ```
+{% endraw %}
 
 **实现侧**：handler 接收 `params`（JSON）与 `session_id`，返回 **content 数组**；与 MCP `tools/call` 结果中的 `content` 列表一致。
 
+{% raw %}
 ```cpp
 static mcp::json get_time_handler(const mcp::json& /*params*/, const std::string& /*session_id*/) {
     ...
     return mcp::json::array({{{"type", "text"}, {"text", "Server local time: " + time_str}}});
 }
 ```
+{% endraw %}
 
 **错误路径**：`echo_handler` / `calculator_handler` 在参数缺失时 **`throw mcp::mcp_exception(mcp::error_code::invalid_params, "...")`**。库会映射为 JSON-RPC 错误，客户端可将该次 `tools/call` 标为失败或 `isError`，而无需你在 handler 里手写 HTTP。
 
