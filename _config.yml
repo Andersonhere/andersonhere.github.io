@@ -71,7 +71,8 @@ kramdown:
 sass:
   style: :compressed
 
-paginate: 10
+# 首页文章列表每页条数（修改数字即可；需重新构建站点后生效）
+paginate: 5
 paginate_path: "/page:num/"
 
 exclude:
