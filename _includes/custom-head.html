@@ -8,3 +8,53 @@
 <link rel="shortcut icon" type="image/png" href="{{ _favicon | relative_url }}">
 <link rel="apple-touch-icon" href="{{ _favicon | relative_url }}">
 {% endif %}
+
+<style>
+/* Light 模式下导航栏对比度优化 */
+@media (prefers-color-scheme: light) {
+  /* 顶部导航栏背景和文字 */
+  .site-header {
+    background: rgba(255, 255, 255, 0.98) !important;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .site-header .site-brand {
+    color: #1a1a1a !important;
+  }
+
+  .site-header .site-brand:hover {
+    color: #0066cc !important;
+  }
+
+  /* 导航链接样式 */
+  .site-header .header-col .nav-link {
+    color: #333 !important;
+    font-weight: 500;
+  }
+
+  .site-header .header-col .nav-link:hover {
+    color: #0066cc !important;
+    background: rgba(0, 102, 204, 0.08);
+  }
+
+  .site-header .header-col .nav-link.active {
+    color: #0066cc !important;
+    border-bottom: 2px solid #0066cc;
+  }
+
+  /* 主题切换按钮 */
+  .site-header .theme-toggle {
+    color: #333 !important;
+  }
+
+  .site-header .theme-toggle:hover {
+    color: #0066cc !important;
+  }
+}
+
+/* 确保在页面滚动时导航栏依然清晰 */
+.site-header.scrolled {
+  background: rgba(255, 255, 255, 0.98) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+</style>
