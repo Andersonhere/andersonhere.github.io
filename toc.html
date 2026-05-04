@@ -31,33 +31,20 @@ permalink: /toc.html
   padding: 0.6rem 1rem;
   margin: 0.2rem 0;
   cursor: pointer;
-  border-radius: 6px;
-  transition: all 0.2s ease;
   font-size: 0.95rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.toc-category-item:hover {
-  background: var(--background-secondary, #f5f5f5);
-}
-
 .toc-category-item.active {
-  background: var(--accent-color, #0066cc);
-  color: white;
+  color: var(--accent-color, #0066cc);
+  font-weight: 500;
 }
 
 .toc-category-count {
   font-size: 0.8rem;
   opacity: 0.7;
-  background: rgba(0,0,0,0.1);
-  padding: 0.1rem 0.5rem;
-  border-radius: 10px;
-}
-
-.toc-category-item.active .toc-category-count {
-  background: rgba(255,255,255,0.2);
 }
 
 /* 右侧文章列表 */
