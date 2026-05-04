@@ -12,28 +12,42 @@
 <style>
 /* Light 模式下导航栏对比度优化 */
 @media (prefers-color-scheme: light) {
-  .site-header {
+  /* 导航栏背景 */
+  .site-header,
+  .page-header .site-header,
+  body .site-header {
     background: rgba(255, 255, 255, 0.96) !important;
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5 !important;
   }
 
-  .site-header .site-brand {
+  /* 网站标题 */
+  .site-header .site-brand,
+  .site-header .site-brand a,
+  .site-header a.site-brand {
     color: #2a2a2a !important;
   }
 
-  .site-header .site-brand:hover {
+  .site-header .site-brand:hover,
+  .site-header .site-brand a:hover {
     color: #0066cc !important;
   }
 
-  .site-header .nav-link {
+  /* 导航链接 */
+  .site-header .nav-link,
+  .site-header a.nav-link,
+  .site-header .header-col a {
     color: #555 !important;
   }
 
-  .site-header .nav-link:hover {
+  .site-header .nav-link:hover,
+  .site-header a.nav-link:hover,
+  .site-header .header-col a:hover {
     color: #0066cc !important;
   }
 
-  .site-header .theme-toggle {
+  /* 主题切换按钮 */
+  .site-header .theme-toggle,
+  .site-header button.theme-toggle {
     color: #555 !important;
   }
 
@@ -41,12 +55,18 @@
     color: #0066cc !important;
   }
 
+  /* 搜索按钮 */
   .site-header .search-toggle {
     color: #555 !important;
   }
 
   .site-header .search-toggle:hover {
     color: #0066cc !important;
+  }
+
+  /* 移除任何文字阴影 */
+  .site-header * {
+    text-shadow: none !important;
   }
 }
 </style>
