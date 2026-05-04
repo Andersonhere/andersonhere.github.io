@@ -11,8 +11,6 @@
 
 <style>
 /* Light 模式下导航栏对比度优化 */
-
-/* 非首页导航栏：深色文字 */
 @media (prefers-color-scheme: light) {
   .site-header {
     background: rgba(255, 255, 255, 0.96) !important;
@@ -43,22 +41,12 @@
     color: #0066cc !important;
   }
 
-  /* 搜索按钮等 */
   .site-header .search-toggle {
     color: #555 !important;
   }
 
   .site-header .search-toggle:hover {
     color: #0066cc !important;
-  }
-}
-
-/* 首页特殊处理：有 banner 时导航栏需要白色文字 */
-@media (prefers-color-scheme: light) {
-  .page-banner + .site-header,
-  .site-header:has(.banner-overlay) {
-    background: transparent !important;
-    border-bottom: none;
   }
 }
 </style>
