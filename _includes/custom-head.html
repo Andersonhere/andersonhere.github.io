@@ -69,4 +69,111 @@
     text-shadow: none !important;
   }
 }
+
+/* Dark 模式下导航栏对比度优化 */
+@media (prefers-color-scheme: dark) {
+  /* 导航栏背景 */
+  .site-header,
+  .page-header .site-header,
+  body .site-header {
+    background: rgba(30, 30, 30, 0.96) !important;
+    border-bottom: 1px solid #444 !important;
+  }
+
+  /* 网站标题 */
+  .site-header .site-brand,
+  .site-header .site-brand a,
+  .site-header a.site-brand {
+    color: #e0e0e0 !important;
+  }
+
+  .site-header .site-brand:hover,
+  .site-header .site-brand a:hover {
+    color: #66b3ff !important;
+  }
+
+  /* 导航链接 */
+  .site-header .nav-link,
+  .site-header a.nav-link,
+  .site-header .header-col a {
+    color: #b0b0b0 !important;
+  }
+
+  .site-header .nav-link:hover,
+  .site-header a.nav-link:hover,
+  .site-header .header-col a:hover {
+    color: #66b3ff !important;
+  }
+
+  /* 主题切换按钮 */
+  .site-header .theme-toggle,
+  .site-header button.theme-toggle {
+    color: #b0b0b0 !important;
+  }
+
+  .site-header .theme-toggle:hover {
+    color: #66b3ff !important;
+  }
+
+  /* 搜索按钮 */
+  .site-header .search-toggle {
+    color: #b0b0b0 !important;
+  }
+
+  .site-header .search-toggle:hover {
+    color: #66b3ff !important;
+  }
+
+  /* 移除任何文字阴影 */
+  .site-header * {
+    text-shadow: none !important;
+  }
+}
+
+/* 手动切换的 dark 主题（通过 class 或 data 属性） */
+html.dark .site-header,
+html[data-theme="dark"] .site-header,
+body.dark .site-header,
+[data-theme="dark"] .site-header {
+  background: rgba(30, 30, 30, 0.96) !important;
+  border-bottom: 1px solid #444 !important;
+}
+
+html.dark .site-header .site-brand,
+html.dark .site-header .site-brand a,
+html.dark .site-header a.site-brand,
+html[data-theme="dark"] .site-header .site-brand,
+html[data-theme="dark"] .site-header .site-brand a,
+[data-theme="dark"] .site-header .site-brand a {
+  color: #e0e0e0 !important;
+}
+
+html.dark .site-header .nav-link,
+html.dark .site-header a.nav-link,
+html.dark .site-header .header-col a,
+html[data-theme="dark"] .site-header .nav-link,
+html[data-theme="dark"] .site-header a.nav-link,
+[data-theme="dark"] .site-header .header-col a {
+  color: #b0b0b0 !important;
+}
+
+html.dark .site-header .nav-link:hover,
+html.dark .site-header a.nav-link:hover,
+html[data-theme="dark"] .site-header .nav-link:hover,
+[data-theme="dark"] .site-header a.nav-link:hover {
+  color: #66b3ff !important;
+}
+
+html.dark .site-header .theme-toggle,
+html.dark .site-header button.theme-toggle,
+html[data-theme="dark"] .site-header .theme-toggle,
+[data-theme="dark"] .site-header button.theme-toggle {
+  color: #b0b0b0 !important;
+}
+
+html.dark .site-header .search-toggle,
+html[data-theme="dark"] .site-header .search-toggle,
+[data-theme="dark"] .site-header .search-toggle {
+  color: #b0b0b0 !important;
+}
 </style>
