@@ -1,6 +1,6 @@
 ---
 title: memcpy与虚函数表：vptr内存布局解析
-tags: [cpp, 内存, 虚函数, 继承, 面试]
+tags: [C++, 内存, 虚函数, 继承, 面试]
 created: 2026-05-05 00:15:00
 updated: 2026-05-05 00:15:00
 source: https://mp.weixin.qq.com/s/r9ssVVPXs22GGLmdGaQVuw

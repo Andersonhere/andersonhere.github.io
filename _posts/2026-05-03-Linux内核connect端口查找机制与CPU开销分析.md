@@ -2,7 +2,7 @@
 title: Linux 内核 connect 端口查找机制与 CPU 开销分析
 date: 2026-05-03 23:50:00 +0800
 categories: [Linux, 内核]
-tags: [linux, kernel, networking, tcp, 性能优化]
+tags: [Linux, 内核, 网络, TCP, 性能优化]
 excerpt_image: /images/homepage/5833e314e4402.jpeg
 ---
 
