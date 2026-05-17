@@ -6,7 +6,7 @@ tags: [LangGraph, Agent, StateGraph, Checkpointer, ReAct, Python, 学习笔记]
 ---
 
 > 一周时间从"手写 80 行 Agent"过渡到"LangGraph 玩 Time Travel"，把脑子里的概念图沉淀下来。
-> 这篇是知识点速查版 —— 不讲怎么选框架（[那篇在这里](/posts/写完同一个Agent两遍后我才懂LangGraph在卷什么/)），只讲 LangGraph 的核心概念怎么咬合。
+> 这篇是知识点速查版 —— 不讲怎么选框架（[那篇在这里](/写完同一个Agent两遍后我才懂LangGraph在卷什么/)），只讲 LangGraph 的核心概念怎么咬合。
 
 ---
 
@@ -184,4 +184,4 @@ LangGraph 的 TypedDict 是运行时 dict，写错字段名只是多一个不被
 ---
 
 *详细代码 / 笔记 / 踩坑过程都在 [hello-agents 学习仓库](https://github.com/Andersonhere/hello-agents) 的 `learning-plan/week2/` 目录下。
-更深入的"为什么选 LangGraph 而不是手写"在 [这篇博客](/posts/写完同一个Agent两遍后我才懂LangGraph在卷什么/)。*
+更深入的"为什么选 LangGraph 而不是手写"在 [这篇博客](/写完同一个Agent两遍后我才懂LangGraph在卷什么/)。*
